@@ -1,0 +1,1 @@
+CREATE TABLE "public"."user_roles"("id" bigserial NOT NULL, "user_id" bigint NOT NULL, "role" text NOT NULL, "created_at" timestamptz NOT NULL DEFAULT now(), PRIMARY KEY ("id") , FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON UPDATE cascade ON DELETE cascade, FOREIGN KEY ("role") REFERENCES "public"."roles"("roles") ON UPDATE cascade ON DELETE cascade);

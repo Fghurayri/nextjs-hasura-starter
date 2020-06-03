@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Merriweather", serif;
+}
+
+h1,
+h2,
+p {
+  margin: 50px 0px;
+  text-align: center;
+  color: #666;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 10px;
+  margin: 0px 30px;
+  font-size: 25px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 100px 1fr 100px;
+}
+
+.header {
+  background: rgb(101, 101, 113);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.home-container {
+  display: grid;
+  grid-template-rows: 2fr 1fr 3fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.stack {
+  opacity: 0.8;
+  margin-top: 80px;
+  padding: 20px;
+  width: 60%;
+}
+
+form {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 380px;
+  height: 450px;
+  padding: 20px;
+  margin: 60px auto;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  position: relative;
+  background-color: #fbfbfb;
+}
+
+.auth-input,
+.todo-item-input {
+  font-family: inherit;
+  color: #666;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 300px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(102, 102, 102, 0.201);
+}
+
+button {
+  font-family: inherit;
+  width: 316px;
+  margin-bottom: 20px;
+  padding: 10px;
+  height: 47px;
+  background-color: rgb(101, 101, 113);
+  border: 0;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.todos-image {
+  align-self: flex-end;
+  opacity: 0.2;
+  overflow: hidden;
+}
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-container {
+  height: 20px;
+}
+
+.error-text {
+  color: brown;
+  font-size: 20px;
+}
+
+.todos-page-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+
+.todos-list-container {
+  width: 350px;
+  height: 480px;
+  padding: 20px;
+  margin: 60px auto;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  position: relative;
+  background-color: #fbfbfb;
+}
+
+.add-todo-container {
+  display: flex;
+  height: 60px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.todo-item-input {
+  width: 80%;
+}
+
+.add-todo-button {
+  cursor: pointer;
+}
+
+.todo-item {
+  background-color: rgba(184, 183, 183, 0.16);
+  height: 50px;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 12px;
+}
+
+input[type="checkbox"] {
+  margin-right: 15px;
+}

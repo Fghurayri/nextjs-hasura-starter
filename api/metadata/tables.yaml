@@ -1,0 +1,113 @@
+- table:
+    schema: public
+    name: roles
+  is_enum: true
+  array_relationships:
+  - name: user_roles
+    using:
+      foreign_key_constraint_on:
+        column: role
+        table:
+          schema: public
+          name: user_roles
+  - name: users
+    using:
+      foreign_key_constraint_on:
+        column: default_role
+        table:
+          schema: public
+          name: users
+- table:
+    schema: public
+    name: todos
+  object_relationships:
+  - name: user
+    using:
+      foreign_key_constraint_on: author_id
+  insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      set:
+        author_id: x-hasura-user-id
+      columns:
+      - text
+      backend_only: false
+  select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+      - id
+      - text
+      - is_completed
+      - is_public
+      - author_id
+      - created_at
+      - updated_at
+      filter:
+        is_public:
+          _eq: true
+  - role: user
+    permission:
+      columns:
+      - is_completed
+      - is_public
+      - author_id
+      - id
+      - text
+      - created_at
+      - updated_at
+      filter:
+        _or:
+        - author_id:
+            _eq: X-Hasura-User-Id
+        - is_public:
+            _eq: true
+  update_permissions:
+  - role: user
+    permission:
+      columns:
+      - is_completed
+      - is_public
+      filter:
+        author_id:
+          _eq: X-Hasura-User-Id
+      check: null
+  delete_permissions:
+  - role: user
+    permission:
+      filter:
+        author_id:
+          _eq: X-Hasura-User-Id
+- table:
+    schema: public
+    name: user_roles
+  object_relationships:
+  - name: roleByRole
+    using:
+      foreign_key_constraint_on: role
+  - name: user
+    using:
+      foreign_key_constraint_on: user_id
+- table:
+    schema: public
+    name: users
+  object_relationships:
+  - name: role
+    using:
+      foreign_key_constraint_on: default_role
+  array_relationships:
+  - name: todos
+    using:
+      foreign_key_constraint_on:
+        column: author_id
+        table:
+          schema: public
+          name: todos
+  - name: user_roles
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          schema: public
+          name: user_roles
