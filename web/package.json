@@ -12,7 +12,7 @@
     "bcrypt": "^4.0.1",
     "cookie": "^0.4.1",
     "jsonwebtoken": "^8.5.1",
-    "next": "9.4.2",
+    "next": "11.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-query": "^1.5.3",
